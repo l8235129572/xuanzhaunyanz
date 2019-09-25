@@ -31,11 +31,11 @@ class Yzpic extends Controller
     }
 }
 ```
-#方便机器识别，给图片添加文字
+# 方便机器识别，给图片添加文字
 ```php
 $Yzt = new \Yzt\Yzt('https://api.uomg.com/api/rand.img1', true, true, rand(20, 270));
 ```
-##python cv2 识别粗略代码
+## python cv2 识别粗略代码
 ### 第一步  1.py
 ```python
 #!/usr/bin/env python
@@ -70,7 +70,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()  # 释放窗口
 
 ```
-###第二步 2.py
+### 第二步 2.py
 ```python
 # -*- coding: utf-8 -*-
 import cv2
