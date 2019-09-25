@@ -1,1 +1,164 @@
 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>滑块旋转图片角度验证码</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="keywords" content="滑块旋转图片角度验证码" />
+    <meta name="description" content="滑块旋转图片角度验证码" />
+    <link rel="stylesheet" href="/xuanzhaunyanz/demo/md.css" />
+    <style>
+      body {
+        margin: 0;
+        margin-top: 0px;
+        padding: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="vcode-mask" id="vcode-mask754"></div>
+    <div class="vcode-body" id="vcode-body754">
+      <div class="mod-vcodes" id="mod-vcodes754">
+        <div class="mod-vcode-content clearfix" id="pass-content754">
+          <p class="mod-page-tipInfo-gray1" id="pass-slide-tipInfo754">
+            身份验证
+          </p>
+          <p class="mod-page-tipInfo-gray2" id="pass-slide-tipInfo2754">
+            拖动滑块，使图片角度为正
+          </p>
+          <div class="vcode-spin-faceboder" id="vcode-spin-faceboder754">
+            <div
+              class="vcode-spin-img"
+              id="vcode-spin-img754"
+              style='transform: rotate(0deg);background-image: url("{$img}");'
+            ></div>
+            <div class="vcode-spin-mask hide" id="vcode-spin-mask754"></div>
+            <div class="vcode-spin-icon hide" id="vcode-spin-icon754"></div>
+          </div>
+          <div class="vcode-spin-control" id="pass-spin-control754">
+            <div class="vcode-spin-bottom" id="vcode-spin-bottom754">
+              <p id="vcode-spin-bottom-p754">请将图片角度转动为正</p>
+            </div>
+            <div
+              class="vcode-spin-button"
+              id="vcode-spin-button751"
+              style="transform:translateX(0px)"
+            >
+              <p class="" id="vcode-spin-button-p754"></p>
+            </div>
+          </div>
+          <p class="vcode-slide-footer" id="pass-spin-footer754">
+            摄影师：阿政 该作品经[XuperIPR]版权存证
+          </p>
+          <div class="button">
+            重置
+          </div>
+          <div class="button1">
+            刷新
+          </div>
+        </div>
+      </div>
+      <div class="vcode-close" id="vcode-close754"></div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      var rotate = "{$rotate}";
+      witdh = 0;
+      $("body").on("mousedown", "#vcode-spin-button751", function(q) {
+        x1 = q.pageX;
+        if (
+          !$(this).hasClass("vcode-spin-button-error") &&
+          !$(this).hasClass("vcode-spin-button-loading")
+        ) {
+          console.log("sdasda");
+          $(this).addClass("vcode-spin-button-focus");
+        }
+
+        $("#vcode-spin-button751").mousemove(function(e) {
+          x = e.pageX;
+          witdh = x - x1;
+          console.log(witdh);
+          n = (360 / 210) * witdh;
+
+          $(".vcode-spin-img").css({ transform: "rotate(" + n + "deg)" });
+          var t = $("#vcode-spin-button751").hasClass(
+            "vcode-spin-button-error"
+          );
+          if (witdh > 211) {
+            $("#vcode-spin-button751").css({
+              transform: "translateX(0px)"
+            });
+
+            $("#vcode-spin-button751")
+              .removeClass("vcode-spin-button-focus")
+              .removeClass("vcode-spin-button-error");
+            $(".vcode-spin-bottom").unbind();
+            $("#vcode-spin-button751").unbind();
+            $("#vcode-spin-button751").unbind();
+          }
+          if (witdh < 211 && witdh > -1 && !t) {
+            if (witdh == 0) {
+              $("#vcode-spin-button751").css({
+                transform: "translateX(0px)"
+              });
+            }
+            $("#vcode-spin-button751").css({
+              transform: "translateX(" + witdh + "px)"
+            });
+          } else if (t) {
+          } else {
+            $("#vcode-spin-button751").css({
+              transform: "translateX(210px)"
+            });
+            $("#vcode-spin-button751")
+              .removeClass("vcode-spin-button-focus")
+              .addClass("vcode-spin-button-error");
+            $(".vcode-spin-bottom").unbind();
+            $("#vcode-spin-button751").unbind();
+            $("#vcode-spin-button751").unbind();
+          }
+        });
+      });
+      $("body").on("mouseup", "#vcode-spin-button751", function(q) {
+        $("body").off("mousemove");
+        witdh = 0;
+        $("#vcode-spin-button751").css({
+          transform: "translateX(0px)"
+        });
+        $(".vcode-spin-img").css({ transform: "rotate(0deg)" });
+        if (n - rotate > -10 && n - rotate < 10) {
+          $("#vcode-spin-button751")
+            .removeClass("vcode-spin-button-focus")
+            .unbind();
+        }
+        $(".vcode-spin-button-focus")
+          .unbind()
+          .removeClass("vcode-spin-button-focus");
+      });
+      $("body").on("click", ".button", function(q) {
+        $(".vcode-spin-img").css({ transform: "rotate(-360deg)" });
+        $("#vcode-spin-button751")
+          .unbind()
+          .removeClass("vcode-spin-button-error")
+          .removeClass("vcode-spin-button-focus");
+        $("#vcode-spin-button751").css({
+          transform: "translateX(0px)"
+        });
+      });
+      $("body").on("click", ".button1", function(q) {
+        $.post('{:url("api/pic/yzm")}', "", function(data) {
+          if (data.url) {
+            $(".vcode-spin-img").css({
+              "background-image": "url(" + data.url + ")"
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
