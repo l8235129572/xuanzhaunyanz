@@ -2,7 +2,7 @@
 拖动滑块旋转图片，完整人机验证。仿百度旋转验证码，拷贝百度验证码html部分。其本身存在严重bug,需要超大图库才能防止人工智能破解图像旋转角度。
 # thinkphp5.x 调用
 [Yzt.php](https://github.com/scupte/xuanzhaunyanz/blob/master/Yzt.php "Yzt.php") 文件和 [2.ttf](https://github.com/scupte/xuanzhaunyanz/blob/master/2.ttf "2.ttf")
-放在extend 目录下。
+放在extend/Yzt 目录下。
 ```php
 <?php
 namespace app\api\controller;
