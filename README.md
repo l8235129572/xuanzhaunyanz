@@ -2,12 +2,15 @@
 拖动滑块旋转图片，完整人机验证。仿百度旋转验证码，拷贝百度验证码html部分。其本身存在严重bug,需要超大图库才能防止破解，人工智能破解图像旋转角度。
 单张图片或许能计算出旋转角度。（图像识别技术本人不会……）
 PHP 实现无损 裁剪缩放 旋转图片，350*350 黑色背景图片。
-# 验证图片设置成背景，防盗链，没提升获取难度
-## 使用 [*精易Web*浏览器支持库](https://bbs.125.la/thread-14410959-1-1.html)即可
+https://github.com/scupte/xuanzhaunyanz
+![百度验证图](https://upload-images.jianshu.io/upload_images/14594054-8c086b3a3ffa4b04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![百度验证图](https://upload-images.jianshu.io/upload_images/14594054-1e68621399c9f533.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+#验证图片设置成背景，防盗链，没提升获取难度
+##使用 [*精易Web*浏览器支持库](https://bbs.125.la/thread-14410959-1-1.html)即可
 获取背景图（验证图片）。使用图像识别技术获取旋转角度，在利用精易Web*浏览器完成滑动验证。
 还有其他方法不再叙述。…………
 # 例子
-
 https://scupte.github.io/xuanzhaunyanz/demo/index.html
 # thinkphp5.x 调用
 [Yzt.php](https://github.com/scupte/xuanzhaunyanz/blob/master/Yzt.php "Yzt.php") 文件和 [2.ttf](https://github.com/scupte/xuanzhaunyanz/blob/master/2.ttf "2.ttf")
@@ -33,11 +36,11 @@ class Yzpic extends Controller
     }
 }
 ```
-# 方便机器识别，给图片添加文字
+#方便机器识别，给图片添加文字
 ```php
 $Yzt = new \Yzt\Yzt('https://api.uomg.com/api/rand.img1', true, true, rand(20, 270));
 ```
-## python cv2 识别粗略代码
+##python cv2 识别粗略代码
 ### 第一步  1.py
 ```python
 #!/usr/bin/env python
@@ -72,7 +75,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()  # 释放窗口
 
 ```
-### 第二步 2.py
+###第二步 2.py
 ```python
 # -*- coding: utf-8 -*-
 import cv2
