@@ -10,6 +10,16 @@ https://github.com/scupte/xuanzhaunyanz
 ##使用 [*精易Web*浏览器支持库](https://bbs.125.la/thread-14410959-1-1.html)即可
 获取背景图（验证图片）。使用图像识别技术获取旋转角度，在利用精易Web*浏览器完成滑动验证。
 还有其他方法不再叙述。…………
+# 经过python 破解角度实验完全成功
+ ## 测量角度的底图 旋转360度取数据
+ https://github.com/scupte/xuanzhaunyanz/blob/master/python/xuanzhuan360.py
+ ## 验证
+ https://github.com/scupte/xuanzhaunyanz/blob/master/python/yz.py
+ ## 测试图片
+ ![1.png](https://ae01.alicdn.com/kf/Hb85908c3a93744349ea29bc470cd0b44C.png)
+ ![2.png](https://ae01.alicdn.com/kf/H8bb4dc9118324aa99da0a5719e718667N.png)
+# 破解方法说明
+https://bbs.125.la/forum.php?mod=viewthread&tid=14469311&extra=
 # 例子
 https://scupte.github.io/xuanzhaunyanz/demo/index.html
 # thinkphp5.x 调用
