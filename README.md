@@ -5,8 +5,8 @@ PHP 实现无损 裁剪缩放 旋转图片，350*350 黑色背景图片。
 https://github.com/scupte/xuanzhaunyanz
 ![百度验证图](https://upload-images.jianshu.io/upload_images/14594054-8c086b3a3ffa4b04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)![百度验证图](https://upload-images.jianshu.io/upload_images/14594054-1e68621399c9f533.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#验证图片设置成背景，防盗链，没提升获取难度
-##使用 [*精易Web*浏览器支持库](https://bbs.125.la/thread-14410959-1-1.html)即可
+# 验证图片设置成背景，防盗链，没提升获取难度
+## 使用 [*精易Web*浏览器支持库](https://bbs.125.la/thread-14410959-1-1.html)即可
 获取背景图（验证图片）。使用图像识别技术获取旋转角度，在利用精易Web*浏览器完成滑动验证。
 还有其他方法不再叙述。…………
 # 经过python 破解角度实验完全成功
